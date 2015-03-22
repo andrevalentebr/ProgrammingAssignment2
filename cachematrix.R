@@ -1,5 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Programming Assigment 2
+## André Valente do Couto
+## https://github.com/andrevalentebr/ProgrammingAssignment2
 
 ## Write a short comment describing this function
 
@@ -10,22 +11,22 @@ makeCacheMatrix <- function(x = matrix()) {
         inv <<- NULL
     }
     get <- function() x
-    setinverse <- function(inverse) inv <<- inverse
-    getinverse <- function() inv
-    list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
+    setinv <- function(inverse) inv <<- inverse
+    getinv <- function() inv
+    list(set=set, get=get, setinverse=setinverse, getinv=getinv)
 }
 
 
 ## Write a short comment describing this function
 
 cacheSolve <- function(x, ...) {
-    inv <- x$getinverse()
+    inv <- x$getinv()
     if(!is.null(inv)) {
         message("getting cached data.")
         return(inv)
     }
     data <- x$get()
     inv <- solve(data)
-    x$setinverse(inv)
+    x$setinv(inv)
     inv
 }
